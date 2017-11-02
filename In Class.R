@@ -82,10 +82,28 @@ str_detect(fruit, pattern = "a$")
 str_detect(fruit, "[aeiou]")
 str_detect(fruit, "[a-d]")
 
+#[] means or 
+
 #detect a string that starts with "a" and ends with "e"
 
 #3.
 str_detect(fruit, "^a[a-z]*e$")
 
 #4. 
-phone = "213 740 4826"
+phone = c("213 740 4826", "213-740-4826", "213.740.4826", "(213) 740-4826")
+
+parser = "[(]?[0-9]{3}[)]?[ -.][0-9]{3}[ -.][0-9]{4}"
+
+str_detect(phone, parser)
+
+#5. 
+cat(body[10])
+cat(body[18])
+
+str_extract(string = body, pattern = parser)
+
+#6.
+zip = c("90028", "90028-080967")
+parser1 = "[0-9]{5}(-[0-9]{4})?"
+
+str_detect(zip, parser1)
